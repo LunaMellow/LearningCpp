@@ -1,0 +1,40 @@
+﻿/**
+ *   Løsningsforslag til eksamen i OOProg (i C++), juni 2021, oppgave 1D.
+ *
+ *   @file     EX_V21_1D.TXT
+ *   @author   Frode Haug, NTNU
+ */
+
+
+
+1. Referanseoverføring:
+      Bruker '&' mellom <variabeltype> og <variabelnavn>.
+      Oppdaterer medsendt variabel direkte. Får IKKE kopi av den, som ved verdioverføring.
+      Blir altså et alias/kallenavn for en og samme hukommelsescelle/variabel.
+      IKKE det samme som peker - som jo kan endres til å peke på noe helt annet.
+
+
+2. Overloading av funksjoner:
+      Likenavnende, men ulike, funksjoner skilles på ved at de tar ulikt antall 
+      og/eller ulike typer parametre.
+
+
+3. Virtueller:
+      Dynamisk/sen binding, polymorfisme. Funksjon(er) defineres som 'virtual' i baseklassen.
+      Avledede subklasser inneholder også alle/deler av disse funksjonene (med eksakt likt navn).
+      De definerer evt. en annen/ny kode inni funksjonene. En vid peker (til baseklasse) får
+      da tak i og kjørt relevant funksjon (først under run-time) ut fra hvilket avledet 
+      aktuelt objekt den for øyeblikket peker til.
+
+
+4. Container:
+      (Samle)objekt som inneholder andre objekter/datastruktur.
+      STLs vector/stack/queue/list/map er slike.
+      Men også slike selvlagede på prosjektet ('Kunder', 'Utleiesteder'),
+      EKS_27 ('Personbase') og EKS_28 ('Lege' m/liste av 'Resept').
+
+
+5. Iterator:
+      En PEKER (klasse) som brukes til å peke til/gå gjennom elementer i mange av STL containerne.
+      Kan gå f.o.m. (r)begin og opp til (r)end, eller mellom to andre utvalgte container-elementer.
+      Kan ofte: kopieres, dereferensieres (*it), sammenlignes, økes/minskes.

@@ -1,0 +1,30 @@
+﻿/**
+ *   Løsning til eksamen i OOProg (i C++), juni 2021, oppgave 1A.
+ *
+ *   @file     EX_V21_1A.TXT
+ *   @author   Frode Haug, NTNU
+ */
+
+
+//     indeks:  012345678901234567890123456789
+string tekst = "123456123456123456123456123456";  //  Aktuell 'tekst'/bokstavnummer.
+
+
+/*  Dvs. bokstavnummeret (av de seks) som skrives (ut fra 'i' og 'j'):
+
+                   siste siffer  ( j = (<siste siffer> % 5) + 1 ):
+                   0, 5:       1, 6:       2, 7:       3, 8:       4, 9:
+                 -----------------------------------------------------------
+           0, 6: | 1 2 3 4 5   1 3 5 1 3   1 4 1 4 1   1 5 3 1 5   1 6 5 4 3
+nest             |
+siste      1, 7: | 2 3 4 5 6   2 4 6 2 4   2 5 2 5 2   2 6 4 2 6   2 1 6 5 4
+siffer           |
+  ( = i)   2, 8: | 3 4 5 6 1   3 5 1 3 5   3 6 3 6 3   3 1 5 3 1   3 2 1 6 5
+                 |
+           3, 9: | 4 5 6 1 2   4 6 2 4 6   4 1 4 1 4   4 2 6 4 2   4 3 2 1 6
+                 |
+           4:    | 5 6 1 2 3   5 1 3 5 1   5 2 5 2 5   5 3 1 5 3   5 4 3 2 1
+                 |
+           5:    | 6 1 2 3 4   6 2 4 6 2   6 3 6 3 6   6 4 2 6 4   6 5 4 3 2
+*/
+

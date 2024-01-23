@@ -1,0 +1,22 @@
+/**
+ *   Løsning til kontinuasjonseksamen i OOProg (i C++), august 2022, oppgave 1.
+ *
+ *   @file     EX_S22_1.TXT
+ *   @author   Frode Haug, NTNU
+ */
+
+
+
+A)  Svar:   17 30 8 17
+            17 30 30 5
+            6 26 9 29
+            1 1
+            1 0
+
+
+
+B)  Svar:    9 9 9 9 9 :  2 4 8 16 32 64
+            16 2 64 32
+            Verdier er like.
+             10A 10B 11A 11B 12A 12B 13A 13B
+             Chelsea Watford Wolves Arsenal

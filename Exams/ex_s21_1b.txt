@@ -1,0 +1,51 @@
+﻿/**
+ *   Løsning til kontinuasjonseksamen i OOProg (i C++), aug 2021, oppgave 1B.
+ *
+ *   @file     EX_S21_1B.TXT
+ *   @author   Frode Haug, NTNU
+ */
+
+
+
+/*  SISTE siffer i kandidatnummeret:
+
+ 0      Tallene: 20 18 16 14 12 10 11 13 15 17 19
+        Nr.2, 5 og 8 FORFRA:  18 12 13
+        Nr.2, 5 og 9 BAKFRA:  17 11 16
+
+ 1      Tallene: 20 18 16 14 12 10 11 13 15 17 19 21
+        Nr.2, 5 og 8 FORFRA:  18 12 13
+        Nr.2, 5 og 9 BAKFRA:  19 13 14
+
+ 2      Tallene: 22 20 18 16 14 12 10 11 13 15 17 19 21
+        Nr.2, 5 og 8 FORFRA:  20 14 11
+        Nr.2, 5 og 9 BAKFRA:  19 13 14
+
+ 3      Tallene: 22 20 18 16 14 12 10 11 13 15 17 19 21 23
+        Nr.2, 5 og 8 FORFRA:  20 14 11
+        Nr.2, 5 og 9 BAKFRA:  21 15 12
+
+ 4      Tallene: 24 22 20 18 16 14 12 10 11 13 15 17 19 21 23
+        Nr.2, 5 og 8 FORFRA:  22 16 10
+        Nr.2, 5 og 9 BAKFRA:  21 15 12
+
+ 5      Tallene: 24 22 20 18 16 14 12 10 11 13 15 17 19 21 23 25
+        Nr.2, 5 og 8 FORFRA:  22 16 10
+        Nr.2, 5 og 9 BAKFRA:  23 17 10
+
+ 6      Tallene: 26 24 22 20 18 16 14 12 10 11 13 15 17 19 21 23 25
+        Nr.2, 5 og 8 FORFRA:  24 18 12
+        Nr.2, 5 og 9 BAKFRA:  23 17 10
+
+ 7      Tallene: 26 24 22 20 18 16 14 12 10 11 13 15 17 19 21 23 25 27
+        Nr.2, 5 og 8 FORFRA:  24 18 12
+        Nr.2, 5 og 9 BAKFRA:  25 19 11
+
+ 8      Tallene: 28 26 24 22 20 18 16 14 12 10 11 13 15 17 19 21 23 25 27
+        Nr.2, 5 og 8 FORFRA:  26 20 14
+        Nr.2, 5 og 9 BAKFRA:  25 19 11
+
+ 9      Tallene: 28 26 24 22 20 18 16 14 12 10 11 13 15 17 19 21 23 25 27 29
+        Nr.2, 5 og 8 FORFRA:  26 20 14
+        Nr.2, 5 og 9 BAKFRA:  27 21 13
+*/

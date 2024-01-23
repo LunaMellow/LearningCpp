@@ -1,0 +1,43 @@
+﻿/**
+ *   Løsningsforslag til kontinuasjonseksamen i OOProg (i C++), august 2021, oppgave 1D.
+ *
+ *   @file     EX_S21_1D.TXT
+ *   @author   Frode Haug, NTNU
+ */
+
+
+
+1. Standard/default  parametre/argumenter:
+      En funksjon har faste verdier definert som en eller flere av parametrene.
+      Medsendes ikke disse parametrene med nye/andre verdier, er det de definerte som gjelder.
+      Slike parametre kan utelates fortløpende bakfra og fremover (fra høyre mot venstre).
+
+
+2. Arv:
+      Beslektede klasser kan organiseres i klassehierarkier. En baseklasse er da "mor" til
+      arvede/avledede subklasser. Baseklassen er en generalisering, avledet klasse er en spesialisering.
+      Avledet klasse vil arve egenskapene (data og funksjoner) fra "mor", og da bli en utvidelse 
+      (andre/nye data og funksjoner) av denne.
+
+
+3. Abstrakt baseklasse:
+      En klasse som er "mor" til en eller flere subklasser, og som det IKKE lages konkrete objekter
+      av i programmet/hukommelsen.  Den blir derfor "abstrakt" (i motsetning til "fysiske" forekomster
+      av en klasse, også kalt "objekt"). Inngår som en del av det begrepsmessige arvehierarkiet.
+
+
+4. Selvlaget copy-constructor:
+      Innebygde og automatisk constructorer kopierer alt innholdet i et objekt til et annet.
+      Er det pekere (som det ofte er) inni objektene, kopieres bare disses adresse, og ikke det de
+      egentlig peker til. Derfor man spesielt i slike tilfeller lage en egen constructor som manuelt 
+      kopierer ALLE dataene, også slike saker/data som det pekes til.  (se Program 11-8)
+
+
+5. Direkte posisjonering på fil:
+      Mulig å lese fra/skrive til en helt konkret lokasjon i en fil. Filpekere kan settes til å
+      være på et visst antall byte/tegn ut i filen (ift. begynnelse, slutten eller nåværende sted).
+      Til dette brukes 'seekg' (get/hent filpeker) eller 'seekp' (put/skriv filpeker). 
+      Hvor disse for tiden er satt/refererer, kan avleses vha. 'tellg' og 'tellp'.
+
+
+

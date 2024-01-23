@@ -1,0 +1,24 @@
+/**
+ *   Løsning til kontinuasjonseksamen i OOProg (i C++), august 2023, oppgave 1.
+ *
+ *   @file     EX_S23_1.TXT
+ *   @author   Frode Haug, NTNU
+ */
+
+
+
+A)  Svar:   5 10 15
+            12 15 18 21
+            Evdilos
+            Nas
+            12 21 4 16 28 4
+
+
+
+
+
+B)  Svar:   Brokkoli  Gulrot  Potet  Salat
+            Appelsin  Sitron  Mango
+            Eple  Banan  Kiwi
+            A A E L N R S
+            E S 4 E L R S
