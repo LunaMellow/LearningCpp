@@ -6,7 +6,7 @@
  *          - Reads in necessary data about them
  *          - Then creates a subset of all of the wildlife
  *
- *      @file Oblig 1.cpp
+ *      @file Oblig 2.cpp
  *      @date 26-Feb-2024
  *
  *      @author Luna Sofie Bergh
