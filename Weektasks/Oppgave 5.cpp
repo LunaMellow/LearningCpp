@@ -40,7 +40,6 @@ void forelesningSkrivData(const Forelesning* f);
  *      Main Program starts here
  */
 int main() {
-    char s;
 
     Forelesning forelesninger[MAXFORELESNINGER];
 
@@ -52,8 +51,6 @@ int main() {
         cout << "\nData om forelesning nr. " << i + 1 << "\n";
         forelesningSkrivData(&forelesninger[i]);
     }
-
-    cin >> s;
 
     return 0;
 }
