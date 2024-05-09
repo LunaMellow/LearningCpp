@@ -1,10 +1,10 @@
 
 /**     Oblig 3
  *
- *      Program description:
- *          - Desc
- *          - Desc
- *          - Desc
+ *      Programbeskrivelse:
+ *          - Les inn personer fra fil
+ *          - Skriv personer til fil
+ *          - Lag nye personer
  *
  *      @file Oblig 3.cpp
  *      @date 13-Mar-2024
