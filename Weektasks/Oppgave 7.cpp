@@ -16,8 +16,11 @@
 #include "LesData2.h"
 using namespace std;
 
-const int MAXMENGDE = 3;
+const int MAXMENGDE = 3;    // Max tillat tekster/klokkeslett
 
+/**
+ *  Klokkeslett (med time, minutt, sekund)
+ */
 struct Klokkeslett {
     int time,
         minutt,
@@ -28,6 +31,9 @@ void les(string & s);
 void les(Klokkeslett & klokkeslett);
 void skriv(const Klokkeslett klokkeslett);
 
+/**
+ *  Hovedprogrammet:
+ */
 int main() {
 
     string          tekster[MAXMENGDE];
