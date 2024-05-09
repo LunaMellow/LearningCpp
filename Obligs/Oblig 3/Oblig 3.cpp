@@ -121,7 +121,8 @@ int main()  {
  *  @param   inn  - Filobjektet egne data leses inn fra
  */
 Person::Person(ifstream & inn) {
-    //  LAG INNMATEN
+    inn.ignore();
+    getline(inn, navn);
 }
 
 
@@ -129,7 +130,8 @@ Person::Person(ifstream & inn) {
  *  Leser navnet fra brukeren/tastaturet.
  */
 void Person::lesData() {
-    //  LAG INNMATEN
+    cout << "\tNavn på personen: ";
+    getline(cin, navn);
 }
 
 
@@ -137,7 +139,7 @@ void Person::lesData() {
  *  Skriver ut navnet til/på skjermen.
  */
 void Person::skrivData() const {
-    //  LAG INNMATEN
+    cout << "\n\tNavn: " << navn << ", ";
 }
 
 
@@ -147,7 +149,7 @@ void Person::skrivData() const {
  *  @param   ut  - Filobjektet egne data skrives ut til
  */
 void Person::skrivTilFil(ofstream & ut) const {
-    //  LAG INNMATEN
+    ut << navn << endl;
 }
 
 
@@ -159,7 +161,9 @@ void Person::skrivTilFil(ofstream & ut) const {
  *  @param   inn  - Filobjektet egne data leses inn fra
  */
 Student::Student(ifstream & inn) : Person(inn) {
-    //  LAG INNMATEN
+    inn >> stp;
+    inn.ignore();
+    getline(inn, studieprogram);
 }
 
 
@@ -169,17 +173,22 @@ Student::Student(ifstream & inn) : Person(inn) {
  *  @see  skrivData()
  */
 void Student::endreData() {
-    //  LAG INNMATEN
+    cout << "\tStudieprogram: ";
+    getline(cin, studieprogram);
+    stp = lesFloat("Studiepoeng", 0, 300);
 }
 
 
 /**
- *  Leser baseklassens data, studieproram/klasse og studiepoeng fra brukeren.
+ *  Leser baseklassens data, studieprogram/klasse og studiepoeng fra brukeren.
  *
  *  @see   Person::lesData()
  */
 void Student::lesData() {
-    //  LAG INNMATEN
+    Person::lesData();
+    cout << "\tStudieprogram: ";
+    getline(cin, studieprogram);
+    stp = lesFloat("\tStudiepoeng", 0, 300);
 }
 
 
@@ -189,7 +198,9 @@ void Student::lesData() {
  *  @see  Person::skrivData()
  */
 void Student::skrivData() const {
-    //  LAG INNMATEN
+    Person::skrivData();
+    cout << "\tStudiepoeng: "     << stp              << endl
+         << "\tStudieprogram:: "  << studieprogram    << endl;
 }
 
 
@@ -200,7 +211,8 @@ void Student::skrivData() const {
  *  @see     Person::skrivTilTil(...)
  */
 void Student::skrivTilFil(ofstream & ut) const {
-    //  LAG INNMATEN
+    Person::skrivTilFil(ut);
+    ut << stp << " " << studieprogram << endl;
 }
 
 
@@ -212,7 +224,9 @@ void Student::skrivTilFil(ofstream & ut) const {
  *  @param   inn  - Filobjektet egne data leses inn fra
  */
 Ansatt::Ansatt(ifstream & inn) : Person(inn) {
-    //  LAG INNMATEN
+    inn >> lonn;
+    inn.ignore();
+    getline(inn, rom);
 }
 
 
@@ -222,7 +236,10 @@ Ansatt::Ansatt(ifstream & inn) : Person(inn) {
  *  @see  skrivData()
  */
 void Ansatt::endreData() {
-    //  LAG INNMATEN
+    skrivData();
+    lonn = lesInt("\tLønn", 0, 100000000);
+    cout << "\tRom: ";
+    getline(cin, rom);
 }
 
 
@@ -232,7 +249,10 @@ void Ansatt::endreData() {
  *  @see   Person::lesData()
  */
 void Ansatt::lesData() {
-    //  LAG INNMATEN
+    Person::lesData();
+    lonn = lesInt("\tLønn", 0, 100000000);
+    cout << "\tRom: ";
+    getline(cin, rom);
 }
 
 
@@ -242,7 +262,9 @@ void Ansatt::lesData() {
  *  @see  Person::skrivData()
  */
 void Ansatt::skrivData() const {
-    //  LAG INNMATEN
+    Person::skrivData();
+    cout << "\tLønn: "    << lonn     << endl
+         << "\tRom: "     << rom      << endl;
 }
 
 
@@ -253,7 +275,8 @@ void Ansatt::skrivData() const {
  *  @see     Person::skrivTilTil(...)
  */
 void Ansatt::skrivTilFil(ofstream & ut) const {
-    //  LAG INNMATEN
+    Person::skrivTilFil(ut);
+    ut << lonn << rom << endl;
 }
 
 
@@ -267,7 +290,15 @@ void Ansatt::skrivTilFil(ofstream & ut) const {
  *  @see   virtual Person::endreData()
  */
 void endreEnPerson() {
-    //  LAG INNMATEN
+    int nr = lesInt("\tPerson ID", 1, 100000);
+    for (auto & it : gPersoner) {
+        if (it.first == nr) {
+            it.second->endreData();
+            break;
+        }
+        cout << "Personen eksisterer ikke. Ugyldig ID." << endl;
+        return;
+    }
 }
 
 
@@ -275,7 +306,32 @@ void endreEnPerson() {
  *  Leser ALLE personer inn fra fil, og legger de inn i 'gPersoner'.
  */
 void lesFraFil() {
-    //  LAG INNMATEN
+    ifstream innfil("oblig3.dta");
+
+    int nr;
+    char type;
+
+    if (!innfil) {
+        cout << "Fant ikke oblig3.dta" << endl;
+        return;
+
+    }
+
+    while (innfil >> nr >> type) {
+        switch (type) {
+            case 'A':
+                gPersoner[nr] = new Ansatt(innfil);
+                break;
+            case 'S':
+                gPersoner[nr] = new Student(innfil);
+                break;
+            default:
+                cout << "Noe gikk galt ved lesing av filmedlem" << endl;
+                return;
+        }
+    }
+
+    innfil.close();
 }
 
 
@@ -285,7 +341,42 @@ void lesFraFil() {
  *  @see   virtual Person::lesData()
  */
 void nyPerson() {
-    //  LAG INNMATEN
+    Person* nyPers;
+
+    int nr;
+    char type = lesChar("\tType ( (A)nsatt / (S)tudent )");
+
+    switch (type) {
+        case 'A':
+            nr = lesInt("\tNr", 1, 1000);
+            for (auto & it : gPersoner) {
+                if (it.first == nr) {
+                    cout << "Ansatt nr. " << nr << " eksisterer allerede." << endl;
+                    return;
+                }
+            }
+            nyPers = new Ansatt;
+            nyPers->lesData();
+            gPersoner[nr] = nyPers;
+
+            break;
+        case 'S':
+            nr = lesInt("\tNr", 1001, 100000);
+            for (auto & it : gPersoner) {
+                if (it.first == nr) {
+                    cout << "Student nr. " << nr << " eksisterer allerede." << endl;
+                }
+            }
+
+            nyPers = new Student;
+            nyPers->lesData();
+            gPersoner[nr] = nyPers;
+
+            break;
+        default:
+            cout << "Noe gikk galt. Godkjente valg ( (A)nsatt / (S)tudent )" << endl;
+            return;
+    }
 }
 
 
@@ -295,7 +386,9 @@ void nyPerson() {
  *  @see   virtual Person::skrivData()
  */
 void skrivAllePersoner() {
-    //  LAG INNMATEN
+    for (auto & it : gPersoner) {
+        it.second->skrivData();
+    }
 }
 
 
@@ -317,5 +410,18 @@ void skrivMeny() {
  *  @see   virtual Person::skrivTilFil(...)
  */
 void skrivTilFil() {
-    //  LAG INNMATEN
+    ofstream utfil("oblig3.dta");
+
+    for (auto & it : gPersoner) {
+        utfil << it.first << " ";
+        if (it.first < 1001) {
+            utfil << "A ";
+        }
+        else {
+            utfil << "S ";
+        }
+        it.second->skrivTilFil(utfil);
+    }
+
+    utfil.close();
 }
